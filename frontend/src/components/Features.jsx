@@ -1,41 +1,59 @@
-import { Headphones, Shield, Truck } from 'lucide-react'
+import { Headphones, ShieldCheck, Truck, RefreshCw } from 'lucide-react';
 
 const Features = () => {
+  const items = [
+    {
+      icon: <Truck className="h-6 w-6 text-pink-600" />,
+      title: "Complimentary Delivery",
+      description: "Enjoy free premium shipping on all orders over $50",
+      bg: "bg-pink-50 dark:bg-pink-950/20"
+    },
+    {
+      icon: <ShieldCheck className="h-6 w-6 text-purple-600" />,
+      title: "Encrypted Transactions",
+      description: "100% secure payment systems with standard SSL security",
+      bg: "bg-purple-50 dark:bg-purple-950/20"
+    },
+    {
+      icon: <Headphones className="h-6 w-6 text-blue-600" />,
+      title: "Expert Assistance",
+      description: "Our customer service specialists are online 24/7",
+      bg: "bg-blue-50 dark:bg-blue-950/20"
+    },
+    {
+      icon: <RefreshCw className="h-6 w-6 text-teal-600" />,
+      title: "Hassle-Free Returns",
+      description: "Not satisfied? Return or exchange within 30 days",
+      bg: "bg-teal-50 dark:bg-teal-950/20"
+    }
+  ];
+
   return (
-    <section className='py-12 bg-muted/50 '>
-      <div className=' max-w-7xl mx-auto px-4'> 
-        <div className='grid md:grid-cols-3 gap-8'>
-            <div className='flex items-center space-x-4'>
-                <div className='h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center'>
-                    <Truck className='h-6 w-6 text-blue-600'/>
-                </div>
-                <div>
-                    <h3 className='font-semibold'>Free Shipping</h3>
-                    <p className='text-muted-foreground'>On order over $50</p>
-                </div>
+    <section className="py-16 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950 border-y border-slate-100 dark:border-slate-900">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {items.map((item, idx) => (
+            <div 
+              key={idx} 
+              className="flex gap-4 p-6 rounded-2xl bg-white dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800/80 shadow-3xs hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 group"
+            >
+              <div className={`h-12 w-12 rounded-2xl ${item.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                {item.icon}
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-slate-850 dark:text-white text-sm">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </div>
-            <div className='flex items-center space-x-4'>
-                <div className='h-12 w-12 bg-green-100 rounded-full flex items-center justify-center'>
-                    <Shield className='h-6 w-6 text-green-600'/>
-                </div>
-            <div>
-                <h3 className='font-semibold'>Secure Payment</h3>
-                <p className='text-muted-foreground'>100% secure Transcation</p>
-            </div>
-            </div>
-            <div className='flex items-center space-x-4'>
-                <div className='h-12 w-12 bg-purple-100 rounded-full flex items-center justify-center'>
-                    <Headphones className='h-6 w-6 text-purple-600'/>
-                </div>
-                <div>
-                <h3 className='font-semibold'>24/7 Support</h3>
-                <p className='text-muted-foreground'>Always Here to Help</p>
-            </div>
-            </div>
+          ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;

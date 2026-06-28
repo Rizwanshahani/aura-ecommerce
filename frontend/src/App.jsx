@@ -12,6 +12,9 @@ import Checkout from './pages/Checkout'
 import OrderDetails from './pages/OrderDetails'
 import Profile from './pages/Profile'
 import AdminDashboard from './pages/AdminDashboard'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import FAQ from './pages/FAQ'
 import Footer from './components/footer'
 
 const router= createBrowserRouter([
@@ -62,6 +65,18 @@ const router= createBrowserRouter([
   {
     path: "/admin",
     element: <><Navbar/><AdminDashboard/><Footer/></>
+  },
+  {
+    path: "/about",
+    element: <><Navbar/><About/><Footer/></>
+  },
+  {
+    path: "/contact",
+    element: <><Navbar/><Contact/><Footer/></>
+  },
+  {
+    path: "/faq",
+    element: <><Navbar/><FAQ/><Footer/></>
   }
 ])
 
